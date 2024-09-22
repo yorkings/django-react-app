@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
 import Login from "./components/Login"
 import NotFound from "./components/NotFound"
+import Notification from "./components/Notification"
 const Logout=()=>{
   localStorage.clear()
   return <Navigate to="/login"/>
@@ -11,7 +12,9 @@ const Logout=()=>{
 
 const Registerandlogout=()=>{
   localStorage.clear()
-  return <Register/>
+  return (<>
+   <Register/>
+  </>)
 }
 function App() {
   
@@ -28,8 +31,10 @@ function App() {
          <Route path="/login" element={<Login/>}/>
          <Route path="/register" element={<Registerandlogout/>}/>
          <Route path="*" element={<NotFound/>}/>
+         <Route path="/logout" element={<Logout/>}/>
       </Routes>
      </Router>
+     <Notification/>
     </>
   )
 }
